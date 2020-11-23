@@ -11,7 +11,7 @@ class Listing(models.Model):
     city = models.CharField(max_length=50)
     state = models.CharField(max_length=50)
     zipcode = models.CharField(max_length=15)
-    discription = models.TextField(blank=True)
+    description = models.TextField(blank=True)
     price = models.IntegerField()
     bedrooms = models.IntegerField()
     bathrooms = models.DecimalField(max_digits=2, decimal_places=1)

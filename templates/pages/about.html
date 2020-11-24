@@ -6,7 +6,8 @@
 			<div class="col-md-12">
 				<h1 class="display-4">About Kaitar Real Estate</h1>
 				<p class="lead">
-					It the best and easiest way to find the perfect house for your family or any kind of property
+					It the best and easiest way to find the perfect house for your family
+					or any kind of property
 				</p>
 			</div>
 		</div>
@@ -46,6 +47,20 @@
 				</p>
 			</div>
 			<div class="col-md-4">
+				{% if mvp_realtors %} {% for realtor in mvp_realtors %}
+				<div class="card">
+					<img
+						class="card-img-top"
+						src="{{ realtor.photo.url }}"
+						alt="CEO"
+					/>
+					<div class="card-body">
+						<h5 class="card-title">Seller of The Month</h5>
+						<h6 class="text-secondary">{{ realtor.name }}</h6>
+						<p class="card-text">{{ realtor.description }}</p>
+					</div>
+				</div>
+				{% endfor %} {% else %}
 				<div class="card">
 					<img
 						class="card-img-top"
@@ -61,6 +76,7 @@
 						</p>
 					</div>
 				</div>
+				{% endif %}
 			</div>
 		</div>
 	</div>
@@ -84,46 +100,22 @@
 	<div class="container">
 		<h2 class="text-center">Our Team</h2>
 		<div class="row text-center">
+			{% if realtors %} {% for realtor in realtors %}
 			<div class="col-md-4">
-				<img
-					src=""
-					alt=""
-					class="rounded-circle mb-3"
-				/>
-				<h4>Kyle Brown</h4>
+				<img src="{{ realtor.photo.url }}" alt="" class="rounded-circle mb-3" />
+				<h4>{{ realtor.name }}</h4>
 				<p class="text-success">
 					<i class="fas fa-award text-success mb-3"></i> Realtor
 				</p>
 				<hr />
-				<p><i class="fas fa-phone"></i> (555)-555-5555</p>
-				<p><i class="fas fa-envelope-open"></i> kyle@kaitarrealestate.com</p>
+				<p><i class="fas fa-phone"></i> {{ realtor.phone }}</p>
+				<p><i class="fas fa-envelope-open"></i> {{ realtor.email }}</p>
 			</div>
-
-			<div class="col-md-4">
-				<img
-					src=""
-					alt=""
-					class="rounded-circle mb-3"
-				/>
-				<h4>Mark Hudson</h4>
-				<p class="text-success">Realtor</p>
-				<hr />
-				<p><i class="fas fa-phone"></i> (444)-444-4444</p>
-				<p><i class="fas fa-envelope-open"></i> mark@kaitarrealestate.com</p>
+			{% endfor %} {% else %}
+			<div class="col-md-12">
+				<p>No Realtors Available</p>
 			</div>
-
-			<div class="col-md-4">
-				<img
-					src=""
-					alt=""
-					class="rounded-circle mb-3"
-				/>
-				<h4>Jenny Johnson</h4>
-				<p class="text-success">Realtor</p>
-				<hr />
-				<p><i class="fas fa-phone"></i> (333)-333-3333</p>
-				<p><i class="fas fa-envelope-open"></i> jenny@kaitarrealestate.com</p>
-			</div>
+			{% endif %}
 		</div>
 	</div>
 </section>

@@ -53,5 +53,6 @@ def search(request):
         'bedrooms': bedroom_choices,
         'prices': price_choices,
         'states': state_choices,
+        'values': request.GET,
     }
     return render(request, 'listings/search.html', context)

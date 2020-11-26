@@ -16,6 +16,7 @@
 				</p>
 				<div class="search">
 					<form action="{% url 'search' %}">
+						{% csrf_token %}
 						<!-- Form Row 1 -->
 						<div class="form-row">
 							<div class="col-md-4 mb-3">
@@ -77,6 +78,9 @@
 		</div>
 	</div>
 </section>
+
+<!-- Messages -->
+{% include 'partials/_messages.html' %}
 
 <!-- Listings -->
 <section id="listings" class="py-5">
